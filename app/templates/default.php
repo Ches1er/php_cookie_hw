@@ -10,6 +10,8 @@
 </head>
 <body>
 <h1>Угадай число</h1>
-<?=$content?>
+<section>
+    <?=$content?>
+</section>
 </body>
 </html>
