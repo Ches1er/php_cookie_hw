@@ -7,8 +7,6 @@ define("VIEWSPATH",APPPATH."/views/");
 define("TEMPLATEPATH",APPPATH."/templates/");
 define("FUNC",APPPATH."/functions/");
 
-define("NUMBER",20);
-
 include ROOTPATH."routing.php";
 
 print_r(navigate()) ;

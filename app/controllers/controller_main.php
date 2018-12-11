@@ -1,14 +1,19 @@
 <?php
 
-include FUNC."view_fns.php";
-include FUNC."check_fns.php";
+function action_define_num(){
+    $num = rand(1,100);
+    saveCookie("num",$num);
+    header("Location:/");
+    return "";
+}
 
 function action_index(){
     $data=[
         "title"=>"Угадай число",
         "result"=>getFromCookie()
     ];
-    delFromCookie();
+    delFromCookie("result");
+    delFromCookie("number");
     echo getViewWTempate("template","main",$data);
 }
 

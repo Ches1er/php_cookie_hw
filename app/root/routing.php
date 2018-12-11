@@ -1,6 +1,10 @@
 <?php
 
 function getControllersActions($contr_action){
+
+    include FUNC."view_fns.php";
+    include FUNC."check_fns.php";
+
     $contr_action_arr = explode("@",$contr_action);
     include CONTROLLERSPATH."controller_".$contr_action_arr[0].".php";
     call_user_func("action_".$contr_action_arr[1]);
