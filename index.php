@@ -7,6 +7,7 @@ define("VIEWSPATH",APPPATH."/views/");
 define("TEMPLATEPATH",APPPATH."/templates/");
 define("FUNC",APPPATH."/functions/");
 
+error_reporting(E_ALL & ~E_NOTICE);
 include ROOTPATH."routing.php";
 
 print_r(navigate()) ;
