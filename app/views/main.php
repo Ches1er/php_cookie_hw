@@ -1,8 +1,10 @@
-<?php if ($result==1):?>
-    <div class="result">Вы угадали, загаданное число <?=$_COOKIE["picked_number"]?>, сыграем еще раз?</div>
-    <a href="/">Да, сыграем</a>
-<?php elseif ($result==2):?>
-    <div class="result">Выберите число меньше, чем <?=$_COOKIE["picked_number"]?></div>
+
+<?php if ($result!=NULL && $result===$picked_num):?>
+    <div class="result">Вы угадали, загаданное число <?=$result?>, сыграем еще раз?</div>
+    <a href="/new_game">Да, сыграем</a>
+
+<?php elseif ($picked_num<$result):?>
+    <div class="result">Выберите число меньше, чем <?=$result?></div>
     <form action="/check" method="post">
         <dl>
             <dd>Введите число:</dd>
@@ -10,8 +12,9 @@
             <dt><input type="submit" value="Угадать"></dt>
         </dl>
     </form>
-<?php elseif ($result==3):?>
-    <div class="result">Выберите число больше, чем <?=$_COOKIE["picked_number"]?></div>
+
+<?php elseif ($result!=NULL && $picked_num>$result):?>
+    <div class="result">Выберите число больше, чем <?=$result?></div>
     <form action="/check" method="post">
         <dl>
             <dd>Введите число:</dd>
@@ -19,9 +22,14 @@
             <dt><input type="submit" value="Угадать"></dt>
         </dl>
     </form>
+
 <?php else:?>
-    <div class="result"><?=$result?></div>
+
+    <?php if($button):?>
+    <div class="result">Для того, чтоб загадать число, нажмите на кнопку</div>
     <a href="/random">Загадать число от 1 до 100</a>
+    <?php endif;?>
+
 <form action="/check" method="post">
     <dl>
         <dd>Введите число:</dd>
@@ -29,6 +37,7 @@
         <dt><input type="submit" value="Угадать"></dt>
     </dl>
 </form>
+
 <?php endif;?>
 
 

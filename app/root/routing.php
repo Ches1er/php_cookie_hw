@@ -1,6 +1,6 @@
 <?php
 
-function getControllersActions($contr_action){
+function getControllerAction($contr_action){
 
     include FUNC."view_fns.php";
     include FUNC."check_fns.php";
@@ -15,7 +15,7 @@ function navigate(){
     $url = trim(explode("?",$url)[0],"/");
     $pathes = include "root_config.php";
     foreach ($pathes as $path=>$contr_action){
-        if ($path===$url)return getControllersActions($contr_action);
+        if ($path===$url)return getControllerAction($contr_action);
     }
-    return getControllersActions("error@404");
+    return getControllerAction("error@404");
 }
